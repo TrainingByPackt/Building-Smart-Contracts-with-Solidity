@@ -1,27 +1,29 @@
 pragma solidity ^0.4.0;
 
 contract MyToken {
-    struct Item { // Struct
-        string name;
+    struct TokenHolder {
+        bytes32 name;
     }
 
-    address public owner; // State variable
+    address public owner;
 
-    enum State { Minted, Locked, Inactive } // Enum
+    event MintOccurred(address from, uint amount); // Event
 
-    event TransferOccured(address from, uint amount); // Event
+    function MyToken() public {
+        owner = msg.sender;
+    }
 
-    modifier onlyOwner() { // Modifier
+    modifier onlyOwner() {
         require(msg.sender == owner);
         _;
     }
 
-    function mint() public onlyOwner { // Modifier usage
-        // ...
+    function mint(uint amount) public onlyOwner { // Modifier usage
+        // mint code goes here
+        emit MintOccurred(msg.sender, amount); // Emit Event
     }
 
-    function transfer() public payable { // Function
-        emit TransferOccured(msg.sender, msg.value); // Triggering event
-        // ...
+    function transfer(address to, uint amount) public {
+        // transfer code goes here
     }
 }
