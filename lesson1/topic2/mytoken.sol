@@ -4,7 +4,7 @@ contract MyToken {
     uint totalSupply;
 
     // constructor: instantiate total supply
-    function MyToken(uint total) public {
+    constructor(uint total) public {
         totalSupply = total;
     }
 
