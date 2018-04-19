@@ -4,7 +4,7 @@ contract MyToken {
     uint totalSupply;
     mapping(address => uint) balances;
 
-    function MyToken(uint total) public {
+    constructor(uint total) public {
         totalSupply = total;
     }
 
