@@ -9,7 +9,7 @@ contract MyToken {
 
     event MintOccurred(address from, uint amount); // Event
 
-    function MyToken() public {
+    constructor() public {
         owner = msg.sender;
     }
 
