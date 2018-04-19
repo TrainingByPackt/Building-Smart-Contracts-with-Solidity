@@ -5,7 +5,7 @@ contract MyToken {
     uint data;
 
     /* Constructor intitializes the Token */
-    function constructor() public { }
+    constructor() public { }
 
     /* Functions */
     function transfer() public {}
